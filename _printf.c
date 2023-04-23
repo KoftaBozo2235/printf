@@ -39,5 +39,5 @@ int _printf (const char *format, ...)
 	}
 	i++;
 	}
-	return (0);
+	return (i);
 }	
