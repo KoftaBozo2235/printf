@@ -7,6 +7,10 @@ int _printf (const char *format, ...)
 	char my_char;
 	char thing = '%';
 	va_start(args, format);
+	if (format == NULL)
+		return (-1);
+	if (!strlen(format))
+		return (0);
 
 	while (format[i])
 	{
