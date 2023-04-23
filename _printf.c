@@ -37,7 +37,6 @@ int _printf (const char *format, ...)
 	{
 		_putchar(format[i]);
 	}
-
 	i++;
 	}
 	return (0);
