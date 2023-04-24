@@ -31,7 +31,7 @@ int p_unsigned(va_list args, char buf[], int flg, int fld_wid, int pre, int sz)
 
 	i++;
 
-	return (write_unsgnd(0, i, buf, fmt_flags, field_width, prec, sz));
+	return (write_unsgnd(0, i, buf, flg, fld_wid, pre, sz));
 }
 
 /************* PRINT UNSIGNED NUMBER IN OCTAL  ****************/
