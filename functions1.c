@@ -2,37 +2,36 @@
 
 /************************* PRINT UNSIGNED NUMBER *************************/
 /**
- * print_unsigned - Prints an unsigned number
- * @types: List a of arguments
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
+ * p_unsigned - Prints an unsigned number
+ * @args: List a of arguments
+ * @buf: Buffer array to handle print
+ * @flg:  Calculates active flags
+ * @fld_wid: get width
+ * @pre: Precision specification
+ * @sz: Size specifier
  * Return: Number of chars printed.
  */
-int print_unsigned(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+int p_unsigned(va_list args, char buf[], int flg, int fld_wid, int pre, int sz)
 {
 	int i = BUFF_SIZE - 2;
-	unsigned long int num = va_arg(types, unsigned long int);
+	unsigned long int number = va_arg(args, unsigned long int);
 
-	num = convert_size_unsgnd(num, size);
+	number = convert_size_unsgnd(number, sz);
 
-	if (num == 0)
-		buffer[i--] = '0';
+	if (number == 0)
+		buf[i--] = '0';
 
-	buffer[BUFF_SIZE - 1] = '\0';
+	buf[BUFF_SIZE - 1] = '\0';
 
-	while (num > 0)
+	while (number > 0)
 	{
-		buffer[i--] = (num % 10) + '0';
-		num /= 10;
+		buf[i--] = (number % 10) + '0';
+		number /= 10;
 	}
 
 	i++;
 
-	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
+	return (write_unsgnd(0, i, buf, fmt_flags, field_width, prec, sz));
 }
 
 /************* PRINT UNSIGNED NUMBER IN OCTAL  ****************/
